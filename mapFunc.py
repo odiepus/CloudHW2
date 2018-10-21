@@ -37,6 +37,6 @@ for row in reader:
 #this part will print out the keys and count of each key
 #from here it goes to reduce
 for key,count in entries.items():
-    print key, count
+    print key, "\t", count
 
 csv_f.close()
