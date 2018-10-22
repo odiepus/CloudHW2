@@ -6,6 +6,8 @@ entries = {}
 #for each entry received
 for line in sys.stdin:
     #strip the entry of added \n's etc
+
+    print line
     line = line.strip()
 
     #split the line into key and val(count)
