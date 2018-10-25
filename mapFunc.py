@@ -33,9 +33,9 @@ for line in sys.stdin:
             #laptop takes too long to process all entries 
             #for all files
             #comment it out when out of testing
-            i = i + 1
-            if(i > 200):
-                break
+#            i = i + 1
+#            if(i > 200):
+#                break
 
 #this part will print out the keys and count of each key
 #from here it goes to reduce
