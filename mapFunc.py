@@ -1,4 +1,6 @@
 import csv
+import sys
+
 
 # i is for testing 
 i = 0
@@ -32,7 +34,7 @@ for line in sys.stdin:
             #for all files
             #comment it out when out of testing
             i = i + 1
-            if(i > 2):
+            if(i > 200):
                 break
 
 #this part will print out the keys and count of each key
@@ -40,4 +42,3 @@ for line in sys.stdin:
 for key,count in entries.items():
     print key, "\t", count
 
-fp.close()
