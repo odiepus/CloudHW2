@@ -11,9 +11,7 @@ entries = {}
 #get file name for input file to use
 #not sure if we need to use a looping std reader for 
 #multiple files
-with  open('./files.txt', 'r') as fp:
-
-    for line in fp:
+for line in sys.stdin:
         csv_f = open(line.rstrip(), 'r')
         #using csv module we will create our dictionary and count 
         #the number of occurances while iterating thru the rows.
