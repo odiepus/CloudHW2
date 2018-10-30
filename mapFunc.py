@@ -1,6 +1,4 @@
 import csv
-import sys
-
 
 # i is for testing 
 i = 0
@@ -13,32 +11,25 @@ entries = {}
 #get file name for input file to use
 #not sure if we need to use a looping std reader for 
 #multiple files
-for line in sys.stdin:
-        csv_f = open(line.rstrip(), 'r')
-        #using csv module we will create our dictionary and count 
-        #the number of occurances while iterating thru the rows.
-        reader = csv.DictReader(csv_f)
-        for row in reader:
-            info = () #temp tuple to hold our key 
-            info = (row['Crime Type'], row['Date'][0:2])
-        
-            #if the key is not already in the dictionary then add it and give it a count of 1
-            #else increment the count by one
-            if info not in entries:
-                entries[info] = 1
-            else:
-                entries[info] += 1
+with  open('./files.txt', 'r') as fp:
+
+    for line in fp:
+	csv_f = open(line.rstrip(), 'r')
+	#using csv module we will create our dictionary and count 
+	#the number of occurances while iterating thru the rows.
+	reader = csv.DictReader(csv_f)
+
+	for row in reader:
+
+	    info = () #temp tuple to hold our key 
+            crimeType = str(row['Crime Type'])
+            month = str(row['Date'][0:2])
+	    info = (crimeType, month)
             
-            #code below is for testing only
-            #laptop takes too long to process all entries 
-            #for all files
-            #comment it out when out of testing
-#            i = i + 1
-#            if(i > 200):
-#                break
+            #print out the key and a count of 1 for reducer to take.
+            #the reducer will be the one adding up all the occurances 
+            #of the same crimetype and month
+            print info, "\t", 1 
+            
 
-#this part will print out the keys and count of each key
-#from here it goes to reduce
-for key,count in entries.items():
-    print key, "\t", count
-
+fp.close()
